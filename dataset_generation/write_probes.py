@@ -7,6 +7,7 @@ sys.path.append('..')
 from util import *
 from pathlib import Path
 import reverse_geocoder as rg
+import bz2 # MBxx
 
 def reverseGeocode(coordinates):
     result = rg.search(coordinates)
@@ -21,7 +22,7 @@ def reverseGeocode(coordinates):
     return (name, result[0]['cc'], cont)
 
 def adding_ripe_atlas_probes(year, month):
-    project_dir = Path(get_git_root())
+    project_dir = Path(get_git_root()).resolve() # MBxx
 
     month = str(int(month) - 1) if int(month) != 1 else month
     month = month.zfill(2)  # Ensure month is two digits
@@ -37,7 +38,11 @@ def adding_ripe_atlas_probes(year, month):
             for chunk in response.iter_content(chunk_size=8192):
                 file.write(chunk)
 
-        os.system(f"bunzip2 '{compressed_file_path}'")
+        #os.system(f"bunzip2 '{compressed_file_path}'")
+        # MBxx Decompress using bz2
+        with bz2.BZ2File(compressed_file_path, 'rb') as f_in, open(file_path, 'wb') as f_out:
+            f_out.write(f_in.read())
+
 
     with open(file_path, 'r') as file:
         data = json.load(file)['objects']
