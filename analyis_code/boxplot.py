@@ -5,6 +5,10 @@ import pandas as pd
 import os
 from util import month, year, project_dir, start_date, which_cloud
 
+import sys # MBxx
+# Adds this absolute path to sys.path, in order to import modules from the parent directory.
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) # MBxx 
+
 def plot_ricci_curvature_vs_threshold(month, year, threshold_range, cloud_to_study = None):
     """
     Plot the Ricci Curvature against different threshold values for cloud graphs.

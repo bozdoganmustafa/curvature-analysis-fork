@@ -5,6 +5,7 @@ import sys
 import subprocess
 import pickle
 from tqdm import tqdm
+from pathlib import Path # MBxx
 
 #### MODIFY THE DATE HERE ####
 start_date = '2023-01-01'
@@ -23,15 +24,17 @@ def get_git_root():
     git_root = subprocess.Popen(['git', 'rev-parse', '--show-toplevel'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=path)
     out, _ = git_root.communicate()
     return out.decode('utf-8').strip()
-project_dir = get_git_root()
+project_dir = Path(get_git_root()) # MBxx Path() for OS-friendly directory paths.
 
 def get_continent_file():
-    continent = pd.read_csv(f'{project_dir}/Datasets/SideDatasets/country_continents.csv')
+    #continent = pd.read_csv(f'{project_dir}/Datasets/SideDatasets/country_continents.csv')
+    continent = pd.read_csv(f'Datasets/SideDatasets/country_continents.csv') # MBxx Relative path
     continent = continent.fillna('None')
     return continent
 
 def get_hypergiant_ASes():
-    with open(f'{project_dir}/Datasets/SideDatasets/2021_04_hypergiants_asns.json', 'r') as f:
+    #with open(f'{project_dir}/Datasets/SideDatasets/2021_04_hypergiants_asns.json', 'r') as f:
+    with open(f'Datasets/SideDatasets/2021_04_hypergiants_asns.json', 'r') as f: # MBxx Relative path
         dict_of_CDN = json.load(f)
     ases_hypergiants = {}
     for key in dict_of_CDN.keys():
