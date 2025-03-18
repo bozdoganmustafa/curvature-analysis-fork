@@ -24,7 +24,7 @@ def reverseGeocode(coordinates):
 def adding_ripe_atlas_probes(year, month):
     project_dir = Path(get_git_root()).resolve() # MBxx
 
-    month = str(int(month) - 1) if int(month) != 1 else month
+    # month = str(int(month) - 1) if int(month) != 1 else month # MBxx Purpose of this??
     month = month.zfill(2)  # Ensure month is two digits
 
     file_path = project_dir / 'Datasets' / 'ProbeFiles' / f'{year}{month}01.json'
