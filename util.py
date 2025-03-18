@@ -8,7 +8,7 @@ from tqdm import tqdm
 from pathlib import Path # MBxx
 
 #### MODIFY THE DATE HERE ####
-start_date = '2024-01-01'
+start_date = '2025-01-01'
 year = start_date.split('-')[0]
 month = start_date.split('-')[1]
 day = start_date.split('-')[2]
