@@ -113,7 +113,7 @@ networkit==11.0
 networkx==2.8.8
 notebook==6.5.2
 notebook_shim==0.2.2
-numba#==0.56.4
+numba #==0.56.4
 numexpr #==2.7.3
 numpy==1.23.4
 oauthlib==3.2.2
@@ -184,6 +184,7 @@ requests-futures==1.0.0
 requests-oauthlib==2.0.0
 reverse-geocoder==1.5.1
 ripe.atlas.sagan==1.3.1
+ripe.atlas.cousteau==1.5.1
 rsa==4.9
 Rtree==0.9.7
 ruptures==1.1.9
@@ -203,6 +204,7 @@ simplejson==3.18.0
 six==1.16.0
 sniffio==1.3.0
 snuggs==1.4.7
+socketIO-client==0.7.2 # for cousteau.
 sortedcontainers==2.4.0
 soupsieve==2.3.2.post1
 spaghetti==1.6.10
