@@ -15,10 +15,20 @@ if __name__ == '__main__':
         print("Failed to create measurement:", response)
 
     probe_ids, total_count = get_amazon_probes()
-    print("Probe IDs:", probe_ids)
-    print("Total probe count:", total_count)
+    print("AWS Probe IDs:", probe_ids)
+    print("Total probe count for AWS:", total_count)
 
+    probe_ids, total_count = get_google_cloud_probes()
+    print("GCP Probe IDs:", probe_ids)
+    print("Total probe count for GCP:", total_count)
 
+    probe_ids, total_count = get_azure_probes()
+    print("Azure Probe IDs:", probe_ids)
+    print("Total probe count for Azure:", total_count)
+
+    probe_ids, total_count = get_yahoo_probes()
+    print("Yahoo Probe IDs:", probe_ids)
+    print("Total probe count for Yahoo:", total_count)
 
     # Temporarily commented out for testing above codes.
     # df = adding_ripe_atlas_probes(year, month)
